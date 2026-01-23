@@ -1,0 +1,175 @@
+/* --- 新しいWorkページ用スタイル（コンパクト版） --- */
+
+/* カテゴリ切り替えメニュー（黒帯） */
+.category-nav {
+    background-color: #333;
+    width: 100%;
+    position: sticky;
+    top: 80px;
+    /* ヘッダーの下に固定 */
+    z-index: 900;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.cat-btn {
+    color: #ccc;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.cat-btn:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+.cat-btn.active {
+    background-color: #000;
+    color: #fff;
+    border-bottom: 3px solid var(--accent-blue);
+}
+
+/* カテゴリごとのセクション（切り替え用） */
+.work-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.work-section.active {
+    display: block;
+}
+
+/* カテゴリ専用ヒーローヘッダー（高さを250pxに圧縮） */
+.category-hero {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cat-hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.cat-hero-text h2 {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cat-hero-text p {
+    font-size: 1rem;
+    margin-top: 5px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* プロジェクトタイトル */
+.project-title {
+    font-size: 1.2rem;
+    border-left: 5px solid var(--accent-blue);
+    padding-left: 15px;
+    margin: 40px auto 20px;
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* 画像グリッド（小さくたくさん並べる） */
+.gallery-grid {
+    display: grid;
+    /* 幅200px以上で自動詰め込み（PCで4〜5列） */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    /* プロジェクト間の余白 */
+    padding: 0 20px;
+}
+
+.gallery-item {
+    display: block;
+    aspect-ratio: 4/3;
+    /* 画像比率固定 */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .category-nav {
+        top: 60px;
+    }
+
+    .cat-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+
+    .category-hero {
+        height: 180px;
+    }
+
+    .cat-hero-text h2 {
+        font-size: 2rem;
+    }
+
+    /* スマホでも3列表示に挑戦（小さく見せる） */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+}
