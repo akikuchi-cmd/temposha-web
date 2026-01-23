@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- スマホ用ハンバーガーメニュー ---
+    // --- スマホ用ハンバーガーメニュー (簡易) ---
     const menuBtn = document.querySelector('.menu-button-2');
     const navMenu = document.querySelector('.nav-menu-3');
 
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(err => {
                     console.error(url + ' の読み込みに失敗:', err);
+                    target.innerHTML = '<p style="text-align:center;">現在準備中です。</p>';
                 });
         }
     });

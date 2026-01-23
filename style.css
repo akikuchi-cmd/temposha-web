@@ -553,3 +553,47 @@ img {
         height: 150px;
     }
 }
+
+/* --- 11. 【追加】フォルダごとの箱（BOX）デザイン --- */
+
+/* フォルダごとの箱 */
+.folder-box {
+    background-color: #ffffff;
+    /* 箱の背景色 */
+    border: 1px solid #e0e0e0;
+    /* 薄いグレーの枠線 */
+    border-radius: 8px;
+    /* 角を少し丸く */
+    padding: 40px;
+    /* 箱の内側の余白 */
+    margin-bottom: 60px;
+    /* 次の箱との間隔 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* ふんわりした影 */
+}
+
+/* 箱の中のタイトル（案件名） */
+.folder-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 6px solid #8ab6c6;
+    /* 左側の青いアクセント線 */
+    color: #333;
+    letter-spacing: 0.05em;
+}
+
+/* スマホ用：箱の余白を少し狭くして画面を有効活用 */
+@media (max-width: 600px) {
+    .folder-box {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+
+    .folder-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+}
