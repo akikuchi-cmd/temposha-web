@@ -105,7 +105,6 @@ img {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    /* 画像を少し暗く */
 }
 
 .div-block-11 {
@@ -137,21 +136,42 @@ img {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* WORKページ用のタイトルスタイル（新設） */
+.page-header {
+    margin-top: 80px;
+    padding: 60px 0 20px;
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+
 /* --- 4. ページ内コンテンツ共通 --- */
 .section-content {
     background-color: var(--white);
     padding-top: 150px;
-    /* タイトル下の余白 */
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
 }
 
-/* コンテナ (中央寄せ・幅制限) */
+/* コンテナ */
 .w-container {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 20px;
+}
+
+.message-body-container {
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -167,7 +187,6 @@ img {
     margin-bottom: 10px;
 }
 
-/* 中央配置用ラッパー */
 .div-block-5 {
     text-align: center;
     margin-bottom: 60px;
@@ -195,15 +214,25 @@ img {
     text-align: center;
 }
 
+.footer-logo img,
 .footer-logo {
+    width: 150px;
     opacity: 0.8;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    display: block;
 }
 
 .footer-line {
     border-bottom: 1px solid #666;
     width: 100%;
     margin: 20px 0;
+}
+
+.footer-address {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 40px;
 }
 
 .address {
@@ -220,6 +249,7 @@ img {
 }
 
 /* --- 6. ページ別: INDEX (トップ) --- */
+/* ここが前回抜けていた部分です */
 .top_slide.new {
     height: 100vh;
     width: 100%;
@@ -257,6 +287,7 @@ img {
     color: #333;
 }
 
+/* 理念セクション */
 .no_2 {
     padding: 100px 0;
     background: #fff;
@@ -279,102 +310,213 @@ img {
     color: #555;
 }
 
-/* Work Grid (PC: 固定余白300px) */
-.grid-5 {
+/* --- 6.5. Work Grid (ホーム画面の6個並び) --- */
+.grid-6 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    /* ArCore完全再現の固定余白 */
-    margin-left: 300px;
-    margin-right: 300px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
     padding-bottom: 80px;
 }
 
-.work-item-link {
+.work-cat-box {
     display: block;
     aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
+    background: #000;
+}
+
+.work-cat-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s, opacity 0.4s;
+    opacity: 0.7;
+}
+
+.work-cat-box .cat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.work-cat-box .cat-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.work-cat-box:hover img {
+    transform: scale(1.05);
+    opacity: 0.4;
+}
+
+.work-cat-box:hover .cat-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* --- 7. WORKページ用: Top Slider (★ここが今回追加部分) --- */
+#top-slider-container {
+    width: 100%;
+    background-color: #fff;
+    padding: 40px 0 80px;
+    overflow: hidden;
+}
+
+#top-slider {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 500px;
+    /* スライドの高さ */
+}
+
+/* 各スライドの共通設定 */
+.slide-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* 最初は見えなくする */
+    transition: opacity 1.5s ease-in-out;
+    /* ふわっと切り替え */
+    z-index: 0;
+    background: #fff;
+}
+
+/* 表示されているスライドの設定 */
+.slide-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* ワーク詳細のグリッドレイアウト */
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    height: 100%;
+    padding: 0 40px;
+}
+
+/* 2枚目だけ左右逆にするクラス */
+.work-grid.reverse .work-content {
+    order: 1;
+}
+
+.work-grid.reverse .work-img {
+    order: 2;
 }
 
 .work-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.work-item-link:hover .work-img {
-    transform: scale(1.05);
-}
-
-/* --- 7. ページ別: WORK (Service) --- */
-.work_navi {
-    background-color: #313131;
-    width: 100%;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    z-index: 900;
-}
-
-.center-menu {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-.cat-btn {
-    color: white;
-    padding: 15px 30px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.cat-btn:hover,
-.cat-btn.active {
-    background-color: var(--sky-blue);
-}
-
-.w-layout-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    /* ArCore完全再現の固定余白 */
-    margin-left: 180px;
-    margin-right: 180px;
-}
-
-.work-section {
-    display: none;
-}
-
-.work-section.active {
-    display: grid;
-}
-
-.work-node {
-    margin-bottom: 40px;
+.work-content {
+    padding: 20px;
 }
 
 .heading-3 {
-    font-size: 18px;
-    border-bottom: 1px solid #888;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-family: serif;
-    font-weight: 400;
+    font-size: 24px;
+    border-bottom: 2px solid var(--sky-blue);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    display: inline-block;
+    color: #333;
 }
 
 .paragraph-3 {
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.8;
     margin: 0;
 }
 
-/* --- 8. ページ別: COMPANY / CONTACT 共通 --- */
+/* --- 8. WORKページ用: カテゴリセクション・ギャラリー --- */
+.category-section {
+    padding-top: 120px;
+    margin-top: -120px;
+    margin-bottom: 80px;
+}
+
+.category-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 8px solid #8ab6c6;
+    color: #333;
+    letter-spacing: 0.05em;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.sub-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cover-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.project-name {
+    display: block;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #555;
+    background: #f9f9f9;
+}
+
+/* --- 9. ページ別: COMPANY / CONTACT 共通 --- */
 .table-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -438,22 +580,21 @@ img {
     background: var(--sky-blue);
 }
 
-/* --- 9. レスポンシブ (ArCore設定値) --- */
+/* --- 10. レスポンシブ --- */
 @media (max-width: 991px) {
-    .grid-5 {
+    .grid-6 {
         margin-left: 60px;
         margin-right: 60px;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .w-layout-grid {
-        margin-left: 60px;
-        margin-right: 60px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .paragraph-14 {
         margin-left: 0;
         margin-top: -110px;
+    }
+
+    .work-grid {
+        gap: 30px;
     }
 }
 
@@ -466,24 +607,18 @@ img {
         display: none;
     }
 
-    /* ハンバーガーが必要ならJSで実装 */
     .menu-button-2 {
         display: block;
         font-size: 24px;
         padding: 10px;
+        cursor: pointer;
     }
 
     .work_navi {
         top: 60px;
     }
 
-    .grid-5 {
-        margin-left: 20px;
-        margin-right: 20px;
-        grid-template-columns: 1fr;
-    }
-
-    .w-layout-grid {
+    .grid-6 {
         margin-left: 20px;
         margin-right: 20px;
         grid-template-columns: 1fr;
@@ -513,87 +648,40 @@ img {
     .top_slide.new {
         height: 250px;
     }
-}
 
-/* --- 10. 【追加】ギャラリースタイル --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    display: block;
-    background: #f0f0f0;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 4px;
-    position: relative;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    vertical-align: bottom;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-@media (max-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+    /* スライドショーのスマホ表示 */
+    #top-slider {
+        height: auto;
     }
 
-    .gallery-item {
-        height: 150px;
-    }
-}
-
-/* --- 11. 【追加】フォルダごとの箱（BOX）デザイン --- */
-
-/* フォルダごとの箱 */
-.folder-box {
-    background-color: #ffffff;
-    /* 箱の背景色 */
-    border: 1px solid #e0e0e0;
-    /* 薄いグレーの枠線 */
-    border-radius: 8px;
-    /* 角を少し丸く */
-    padding: 40px;
-    /* 箱の内側の余白 */
-    margin-bottom: 60px;
-    /* 次の箱との間隔 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    /* ふんわりした影 */
-}
-
-/* 箱の中のタイトル（案件名） */
-.folder-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 0;
-    margin-bottom: 30px;
-    padding-left: 20px;
-    border-left: 6px solid #8ab6c6;
-    /* 左側の青いアクセント線 */
-    color: #333;
-    letter-spacing: 0.05em;
-}
-
-/* スマホ用：箱の余白を少し狭くして画面を有効活用 */
-@media (max-width: 600px) {
-    .folder-box {
-        padding: 20px;
-        margin-bottom: 40px;
+    .slide-item {
+        position: relative;
+        opacity: 1;
+        height: auto;
+        margin-bottom: 60px;
+        z-index: 1;
     }
 
-    .folder-title {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    /* スマホでは左右逆転を解除 */
+    .work-grid.reverse .work-content {
+        order: 2;
+    }
+
+    .work-grid.reverse .work-img {
+        order: 1;
+    }
+
+    .work-img {
+        height: 250px;
+    }
+
+    .page-title {
+        font-size: 3rem;
     }
 }
