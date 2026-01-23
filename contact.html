@@ -2,64 +2,71 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Contact | 株式会社テンポ社</title>
-    <link rel="stylesheet" href="style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
     <div class="top_menu001">
-        <a href="index.html" class="brand-2">
-            <img src="logo.png" alt="株式会社テンポ社">
-        </a>
+        <a href="index.html" class="brand-2"><img src="logo.png" alt="株式会社テンポ社"></a>
         <nav class="nav-menu-3">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="company.html" class="nav-link">Company</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-            <a href="service.html" class="nav-link">Work</a>
+            <a href="index.html" class="nav-link-5">HOME</a>
+            <a href="company.html" class="nav-link-6">COMPANY</a>
+            <a href="contact.html" class="nav-link-7 w--current">CONTACT</a>
+            <a href="service.html" class="nav-link-7">WORK</a>
         </nav>
+        <div class="menu-button-2">≡</div>
     </div>
 
-    <div class="page-header">
-        <h1 class="page-title">CONTACT</h1>
+    <div class="top_photo_common"
+        style="background-image: url('https://placehold.co/1920x600/777/fff?text=Contact+Top');"></div>
+
+    <div class="div-block-11">
+        <h1 class="work_title">CONTACT</h1>
     </div>
+    <p class="paragraph-14">mail form</p>
 
-    <div class="message-body-container" style="max-width: 700px;">
-        <p style="text-align: center; margin-bottom: 60px;">お見積もりや工事のご相談は、<br>下記フォームよりお気軽にお問い合わせください。</p>
+    <div class="section-content">
+        <div class="w-container">
+            <p class="paragraph-4" style="text-align: center; margin-bottom: 50px;">
+                お見積もりや工事のご相談は、<br>
+                下記フォームよりお気軽にお問い合わせください。
+            </p>
 
-        <form action="https://formspree.io/f/mqkrqrzr" method="POST"
-            style="background: #fdfdfd; padding: 40px; border: 1px solid #eee;">
-            <div style="margin-bottom: 30px;">
-                <label style="display: block; margin-bottom: 10px;">お名前</label>
-                <input type="text" name="name" required style="width: 100%; padding: 15px; border: 1px solid #ccc;">
+            <div class="form-wrapper">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>お名前</label>
+                        <input type="text" name="name" class="form-control" required placeholder="例：山田 太郎">
+                    </div>
+                    <div class="form-group">
+                        <label>メールアドレス</label>
+                        <input type="email" name="email" class="form-control" required placeholder="例：info@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>お問い合わせ内容</label>
+                        <textarea name="message" rows="6" class="form-control" required
+                            placeholder="ご相談内容をご記入ください"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">送信する</button>
+                </form>
             </div>
-            <div style="margin-bottom: 30px;">
-                <label style="display: block; margin-bottom: 10px;">メールアドレス</label>
-                <input type="email" name="email" required style="width: 100%; padding: 15px; border: 1px solid #ccc;">
-            </div>
-            <div style="margin-bottom: 30px;">
-                <label style="display: block; margin-bottom: 10px;">お問い合わせ内容</label>
-                <textarea name="message" rows="6" required
-                    style="width: 100%; padding: 15px; border: 1px solid #ccc;"></textarea>
-            </div>
-            <button type="submit"
-                style="display: block; width: 200px; margin: 0 auto; padding: 15px; background: #333; color: #fff; border: none; cursor: pointer;">送信する</button>
-        </form>
-    </div>
-
-    <div id="footer" class="footer">
-        <div class="footer-logo">
-            <img src="logo.png" alt="株式会社テンポ社">
         </div>
-        <div class="footer-address">
-            〒028-0481 岩手県遠野市小友町34-65-1<br>
-            TEL.0198-68-2131（代）　FAX.0198-68-2109
-        </div>
-        <div class="copyright">Copyright TEMPO-SHA Co.,ltd.| All Rights Reserved.</div>
     </div>
 
+    <div class="footer">
+        <div class="w-container">
+            <img src="logo.png" width="120" class="footer-logo">
+            <div class="footer-line"></div>
+            <p class="address">〒028-0481 岩手県遠野市小友町34-65-1<br>TEL.0198-68-2131（代） FAX.0198-68-2109</p>
+            <p class="copyright"><strong>Copyright TEMPO-SHA Co.,ltd.| All Rights Reserved.</strong></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
