@@ -514,3 +514,42 @@ img {
         height: 250px;
     }
 }
+
+/* --- 10. 【追加】ギャラリースタイル --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    display: block;
+    background: #f0f0f0;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    vertical-align: bottom;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .gallery-item {
+        height: 150px;
+    }
+}

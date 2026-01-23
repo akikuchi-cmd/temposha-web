@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- スマホ用ハンバーガーメニュー (簡易) ---
+    // --- スマホ用ハンバーガーメニュー ---
     const menuBtn = document.querySelector('.menu-button-2');
     const navMenu = document.querySelector('.nav-menu-3');
 
@@ -42,4 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 【追加】汎用パーツローダー ---
+    // data-load="parts/ファイル名.html" と書くだけで自動的に読み込まれます
+    const loadTargets = document.querySelectorAll('[data-load]');
+
+    loadTargets.forEach(target => {
+        const url = target.getAttribute('data-load');
+        if (url) {
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error('Load failed');
+                    return res.text();
+                })
+                .then(html => {
+                    target.innerHTML = html;
+                })
+                .catch(err => {
+                    console.error(url + ' の読み込みに失敗:', err);
+                });
+        }
+    });
 });
