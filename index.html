@@ -12,7 +12,7 @@
             position: relative;
             width: 100%;
             height: 700px;
-            /* 背景画像：設計図面（おしゃれな雰囲気） */
+            /* 背景画像：設計図面 */
             background-image: url('https://images.unsplash.com/photo-1631624215749-4e0276af403d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
@@ -23,7 +23,7 @@
             justify-content: center;
         }
 
-        /* ★修正：白いフィルターを「0.3（かなり薄く）」にしました。これで画像が見えます。 */
+        /* 白いフィルター */
         .philosophy-overlay {
             position: absolute;
             top: 0;
@@ -40,8 +40,13 @@
             padding: 20px;
             width: 90%;
             max-width: 900px;
-            /* 文字が読みづらくならないよう、文字の後ろだけほんのり白く光らせる */
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        /* 動画コンテナのはみ出しを隠す設定 */
+        .top_slide.new {
+            overflow: hidden;
+            position: relative;
         }
     </style>
 </head>
@@ -61,21 +66,15 @@
         <div class="menu-button-2">≡</div>
     </div>
 
-    <div class="top_slide new" id="home-slider">
-        <div class="slide-item active" style="opacity: 1;">
-            <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
-            </div>
-        </div>
-        <div class="slide-item">
-            <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
-            </div>
-        </div>
-        <div class="slide-item">
-            <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
-            </div>
+    <div class="top_slide new"
+        style="width: 96%; margin: 0 auto; border-radius: 0 0 20px 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+
+        <video src="images/top_movie_new.mp4" autoplay loop muted playsinline
+            style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0; transform: scale(1, 1.12); transform-origin: top center;">
+        </video>
+
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1;">
         </div>
 
         <div class="div-block-11"
@@ -83,6 +82,7 @@
             <h1 class="work_title">TEMPO-SHA</h1>
             <p class="paragraph-14">Total Produce</p>
         </div>
+
         <div class="div-block-2" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">
             <div class="text-block-3">SCROLL</div>
             <div class="arrow-icon">▼</div>
