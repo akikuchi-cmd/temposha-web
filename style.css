@@ -5,9 +5,11 @@
 
 /* --- 1. 変数・リセット --- */
 :root {
-    --white: white;
+    /* モダンな背景色 */
+    --bg-color: #f4f7f6;
+    --white: #ffffff;
     --sky-blue: #7aadc3;
-    --font: #666;
+    --font: #555;
     --rosy-brown: #dd9797;
     --black: #333;
 }
@@ -18,11 +20,12 @@
 
 body {
     margin: 0;
-    color: #333;
+    color: var(--black);
     font-family: Arial, "Noto Sans JP", Helvetica, sans-serif;
     font-size: 14px;
     line-height: 20px;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-color);
 }
 
 a {
@@ -44,13 +47,14 @@ img {
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(244, 247, 246, 0.9);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 4%;
     z-index: 1000;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
 }
 
 .brand-2 img {
@@ -105,7 +109,6 @@ img {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    /* 画像を少し暗く */
 }
 
 .div-block-11 {
@@ -116,12 +119,13 @@ img {
 }
 
 .work_title {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-family: 'Droid Sans', sans-serif;
     font-size: 66px;
     font-weight: 400;
     margin: 0;
     line-height: 1.2;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .paragraph-14 {
@@ -137,21 +141,43 @@ img {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* WORKページ用のタイトルスタイル */
+.page-header {
+    margin-top: 80px;
+    padding: 60px 0 20px;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.page-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+
 /* --- 4. ページ内コンテンツ共通 --- */
 .section-content {
-    background-color: var(--white);
-    padding-top: 150px;
-    /* タイトル下の余白 */
+    background-color: transparent;
+    padding-top: 100px;
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
 }
 
-/* コンテナ (中央寄せ・幅制限) */
+/* コンテナ */
 .w-container {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 20px;
+}
+
+.message-body-container {
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -161,24 +187,24 @@ img {
     font-size: 60px;
     font-weight: 500;
     color: #333;
-    border-bottom: 1px solid var(--sky-blue);
+    border-bottom: 2px solid var(--sky-blue);
     display: inline-block;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* 中央配置用ラッパー */
 .div-block-5 {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .paragraph-5 {
     font-family: 'Great Vibes', cursive;
     font-size: 40px;
     color: var(--sky-blue);
-    margin-top: -20px;
+    margin-top: -25px;
     transform: rotate(-10deg) translateX(80px);
+    opacity: 0.8;
 }
 
 .paragraph-6 {
@@ -189,27 +215,32 @@ img {
 
 /* --- 5. フッター (footer) --- */
 .footer {
-    background-color: #080808;
+    background-color: #1a1a1a;
     padding: 100px 0;
-    color: #6b6b6b;
+    color: #888;
     text-align: center;
 }
 
+.footer-logo img,
 .footer-logo {
-    opacity: 0.8;
-    margin-bottom: 20px;
+    width: 150px;
+    opacity: 0.9;
+    margin: 0 auto 20px;
+    display: block;
 }
 
 .footer-line {
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #444;
     width: 100%;
     margin: 20px 0;
 }
 
-.address {
+.footer-address {
     font-family: "Noto Sans JP", sans-serif;
     font-size: 14px;
     line-height: 2;
+    margin-bottom: 40px;
+    color: #bbb;
 }
 
 .copyright {
@@ -237,29 +268,38 @@ img {
 /* スクロールダウン矢印 */
 .div-block-2 {
     position: absolute;
-    bottom: 50px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 150px;
-    background: rgba(255, 255, 255, 0.8);
+    width: 200px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 10;
     cursor: pointer;
+    border-radius: 10px 10px 0 0;
 }
 
 .arrow-icon {
     margin-top: 10px;
-    font-size: 12px;
-    color: #333;
+    font-size: 14px;
+    color: #fff;
 }
 
+.text-block-3 {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+/* 理念セクション */
 .no_2 {
-    padding: 100px 0;
-    background: #fff;
+    padding: 120px 0;
+    background: transparent;
 }
 
 .div-block-3 {
@@ -269,116 +309,239 @@ img {
     background-size: cover;
     background-position: center;
     margin-bottom: 60px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .paragraph-4 {
     font-family: "Noto Sans JP", serif;
     font-size: 16px;
-    line-height: 2.4;
+    line-height: 2.6;
     text-align: justify;
-    color: #555;
+    color: #444;
 }
 
-/* Work Grid (PC: 固定余白300px) */
-.grid-5 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    /* ArCore完全再現の固定余白 */
-    margin-left: 300px;
-    margin-right: 300px;
+/* --- 6.5. Work Grid (ホーム画面の5個並び・修正版) --- */
+.grid-6 {
+    /* ★GridからFlexに変更して5個を中央寄せにする */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* 中央配置 */
+    gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
     padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.work-item-link {
+.work-cat-box {
     display: block;
+    /* 3列になるように幅計算（gap分を引く） */
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    /* 小さくなりすぎないように */
     aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
+    background: #000;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.work-cat-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s;
+    opacity: 0.85;
+}
+
+.work-cat-box .cat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.work-cat-box .cat-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.work-cat-box:hover img {
+    transform: scale(1.08);
+    opacity: 0.6;
+}
+
+.work-cat-box:hover .cat-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* --- 7. WORKページ用: Top Slider --- */
+#top-slider-container {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 60px 0 100px;
+    overflow: hidden;
+}
+
+#top-slider {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+/* 各スライドの共通設定 */
+.slide-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    z-index: 0;
+    background: var(--bg-color);
+}
+
+.slide-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* ワーク詳細のグリッドレイアウト */
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    height: 100%;
+    padding: 0 40px;
+}
+
+.work-grid.reverse .work-content {
+    order: 1;
+}
+
+.work-grid.reverse .work-img {
+    order: 2;
 }
 
 .work-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-.work-item-link:hover .work-img {
-    transform: scale(1.05);
-}
-
-/* --- 7. ページ別: WORK (Service) --- */
-.work_navi {
-    background-color: #313131;
-    width: 100%;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    z-index: 900;
-}
-
-.center-menu {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-.cat-btn {
-    color: white;
-    padding: 15px 30px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.cat-btn:hover,
-.cat-btn.active {
-    background-color: var(--sky-blue);
-}
-
-.w-layout-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    /* ArCore完全再現の固定余白 */
-    margin-left: 180px;
-    margin-right: 180px;
-}
-
-.work-section {
-    display: none;
-}
-
-.work-section.active {
-    display: grid;
-}
-
-.work-node {
-    margin-bottom: 40px;
+.work-content {
+    padding: 20px;
 }
 
 .heading-3 {
-    font-size: 18px;
-    border-bottom: 1px solid #888;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-family: serif;
-    font-weight: 400;
+    font-size: 26px;
+    border-bottom: 2px solid var(--sky-blue);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    display: inline-block;
+    color: #222;
 }
 
 .paragraph-3 {
-    color: #666;
-    font-size: 14px;
+    color: #555;
+    font-size: 16px;
+    line-height: 2;
     margin: 0;
 }
 
-/* --- 8. ページ別: COMPANY / CONTACT 共通 --- */
+/* --- 8. WORKページ用: カテゴリセクション・ギャラリー --- */
+.category-section {
+    padding-top: 140px;
+    margin-top: -120px;
+    margin-bottom: 100px;
+}
+
+.category-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    padding-left: 20px;
+    border-left: 6px solid #8ab6c6;
+    color: #333;
+    letter-spacing: 0.05em;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.sub-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    display: block;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cover-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.project-name {
+    display: block;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #444;
+    background: #fff;
+    letter-spacing: 0.05em;
+}
+
+/* --- 9. ページ別: COMPANY / CONTACT 共通 --- */
 .table-wrapper {
     max-width: 800px;
     margin: 0 auto;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    padding: 0 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
 .company-table {
@@ -388,7 +551,7 @@ img {
 
 .company-table th,
 .company-table td {
-    padding: 20px;
+    padding: 25px 20px;
     border-bottom: 1px solid #eee;
     text-align: left;
 }
@@ -402,6 +565,10 @@ img {
 .form-wrapper {
     max-width: 700px;
     margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .form-group {
@@ -412,48 +579,66 @@ img {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+    color: #444;
 }
 
 .form-control {
     width: 100%;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 16px;
+    background: #fcfcfc;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--sky-blue);
+    outline: none;
 }
 
 .btn-submit {
     display: block;
-    width: 200px;
-    margin: 40px auto 0;
-    padding: 15px;
+    width: 250px;
+    margin: 50px auto 0;
+    padding: 18px;
     background: #333;
     color: #fff;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
+    letter-spacing: 0.1em;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 50px;
 }
 
 .btn-submit:hover {
     background: var(--sky-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(122, 173, 195, 0.4);
 }
 
-/* --- 9. レスポンシブ (ArCore設定値) --- */
+/* --- 10. レスポンシブ --- */
 @media (max-width: 991px) {
-    .grid-5 {
-        margin-left: 60px;
-        margin-right: 60px;
-        grid-template-columns: 1fr 1fr;
+
+    /* タブレットは2列で中央揃え */
+    .grid-6 {
+        margin-left: 0;
+        margin-right: 0;
+        gap: 20px;
     }
 
-    .w-layout-grid {
-        margin-left: 60px;
-        margin-right: 60px;
+    .work-cat-box {
+        width: calc(50% - 10px);
     }
 
     .paragraph-14 {
         margin-left: 0;
         margin-top: -110px;
+    }
+
+    .work-grid {
+        gap: 40px;
     }
 }
 
@@ -466,27 +651,21 @@ img {
         display: none;
     }
 
-    /* ハンバーガーが必要ならJSで実装 */
     .menu-button-2 {
         display: block;
         font-size: 24px;
         padding: 10px;
+        cursor: pointer;
+        color: #333;
     }
 
-    .work_navi {
-        top: 60px;
+    /* スマホは1列 */
+    .work-cat-box {
+        width: 100%;
     }
 
-    .grid-5 {
-        margin-left: 20px;
-        margin-right: 20px;
-        grid-template-columns: 1fr;
-    }
-
-    .w-layout-grid {
-        margin-left: 20px;
-        margin-right: 20px;
-        grid-template-columns: 1fr;
+    .grid-6 {
+        padding-bottom: 40px;
     }
 
     .heading-4 {
@@ -504,13 +683,73 @@ img {
     }
 
     .div-block-2 {
-        width: auto;
+        width: 100%;
         height: auto;
-        padding: 20px;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 0;
+        bottom: 0;
+    }
+
+    .text-block-3 {
+        font-size: 12px;
     }
 
     .top_photo_common,
     .top_slide.new {
+        height: 300px;
+    }
+
+    /* スライドショーのスマホ表示 */
+    #top-slider {
+        height: auto;
+    }
+
+    .slide-item {
+        position: relative;
+        opacity: 1;
+        height: auto;
+        margin-bottom: 60px;
+        z-index: 1;
+        background: transparent;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .work-grid.reverse .work-content {
+        order: 2;
+    }
+
+    .work-grid.reverse .work-img {
+        order: 1;
+    }
+
+    .work-img {
         height: 250px;
+    }
+
+    .page-title {
+        font-size: 3rem;
+    }
+
+    .form-wrapper,
+    .table-wrapper {
+        padding: 20px;
+    }
+
+    .company-table th,
+    .company-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .company-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+        color: var(--sky-blue);
     }
 }

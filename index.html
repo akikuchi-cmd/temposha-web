@@ -2,16 +2,56 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <title>株式会社テンポ社</title>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社テンポ社 | 岩手県遠野市の店舗施工・住宅建築</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* PHILOSOPHYセクション専用スタイル */
+        .philosophy-section {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            /* 背景画像：設計図面（おしゃれな雰囲気） */
+            background-image: url('https://images.unsplash.com/photo-1631624215749-4e0276af403d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* パララックス効果 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ★修正：白いフィルターを「0.3（かなり薄く）」にしました。これで画像が見えます。 */
+        .philosophy-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .philosophy-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            width: 90%;
+            max-width: 900px;
+            /* 文字が読みづらくならないよう、文字の後ろだけほんのり白く光らせる */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="top_menu001">
-        <a href="index.html" class="brand-2"><img src="logo.png" alt="株式会社テンポ社"></a>
+        <a href="index.html" class="brand-2">
+            <img src="logo.png" alt="株式会社テンポ社">
+        </a>
         <nav class="nav-menu-3">
             <a href="index.html" class="nav-link-5 w--current">HOME</a>
             <a href="company.html" class="nav-link-6">COMPANY</a>
@@ -21,75 +61,140 @@
         <div class="menu-button-2">≡</div>
     </div>
 
-    <div class="top_slide new">
-        <div class="slide" style="background-image: url('https://placehold.co/1920x1080/gray/white?text=Top+Image');">
+    <div class="top_slide new" id="home-slider">
+        <div class="slide-item active" style="opacity: 1;">
+            <div class="slide"
+                style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+        </div>
+        <div class="slide-item">
+            <div class="slide"
+                style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+        </div>
+        <div class="slide-item">
+            <div class="slide"
+                style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+        </div>
+
+        <div class="div-block-11"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 10;">
+            <h1 class="work_title">TEMPO-SHA</h1>
+            <p class="paragraph-14">Total Produce</p>
+        </div>
+        <div class="div-block-2" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">
+            <div class="text-block-3">SCROLL</div>
+            <div class="arrow-icon">▼</div>
         </div>
     </div>
 
-    <a href="#message" class="div-block-2">
-        <img src="logo.png" width="50" style="opacity:0.8; margin-bottom:10px;">
-        <span class="arrow-icon">▼</span>
-    </a>
+    <div class="philosophy-section">
+        <div class="philosophy-overlay"></div>
 
-    <div id="message" class="no_2">
-        <div class="div-block-3"
-            style="background-image: url('https://placehold.co/1920x600/ccc/fff?text=Parallax+Image');"></div>
+        <div class="philosophy-content">
+            <div class="div-block-5" style="margin-bottom: 50px;">
+                <h2 class="heading-4">PHILOSOPHY</h2>
+                <p class="paragraph-5">Concept</p>
+            </div>
 
-        <div class="w-container">
-            <p class="paragraph-4">
-                私たちは、移り変わる時代のニーズに呼応し、事業繁栄と商業建築デザインの融合を目指しています。<br><br>
-                私たち株式会社テンポ社は、岩手県遠野市を拠点に活動する総合施工会社です。これまで東北全域をはじめ、飲食・物販専門店やアパレルショップ、ショッピングモール等、大型商業施設を数多く手がけてまいりました。<br><br>
-                昨今、インターネット環境の発展や顧客ニーズの変化により、私たちを取り巻く環境は大きく変わっています。私たちは商業建築を通して、この多種多様な時代のニーズに呼応し、優れたデザイン性と機能性を重視しながら、お客様が快適で心地よい時間を過ごしていただける空間創りを目指しています。
+            <h3 class="heading-5"
+                style="font-size: 2.2rem; margin-bottom: 50px; line-height: 1.6; letter-spacing: 0.1em; font-weight: bold; color: #111;">
+                想いをカタチにする、<br>空間づくりのパートナー。
+            </h3>
+
+            <p class="paragraph-4"
+                style="text-align: center; margin: 0 auto; max-width: 900px; line-height: 2.4; color: #111; font-size: 1.15rem; font-weight: 600;">
+                岩手県遠野市を拠点に<br>
+                店舗住宅内外装、企画設計施工までを一貫して手掛ける株式会社テンポ社。<br><br>
+                私たちは「ただ作る」のではなく<br>
+                そこにある「想い」を汲み取り、形にすることを使命としています。<br><br>
+                お店を始めたい方の夢、家族と暮らす理想の家、街を彩る看板のデザイン。<br>
+                そのすべてに、確かな技術とデザイン力でお応えします。
             </p>
         </div>
     </div>
 
-    <div class="section-content" style="padding-top:0;">
+    <div class="section-content">
         <div class="div-block-5">
-            <h2 class="heading-4">WORK</h2>
-            <p class="paragraph-5">information</p>
-            <p class="paragraph-6">弊社のこれまでの実績を下記よりご覧いただけます</p>
+            <h2 class="heading-4">SERVICE</h2>
+            <p class="paragraph-5">What we do</p>
         </div>
 
-        <div class="grid-5">
-            <a href="service.html" class="work-item-link">
-                <img class="work-img" src="https://placehold.co/400x400/eee/999?text=Architecture" alt="">
+        <div class="grid-6">
+            <a href="service.html#NEW_CONSTRUCTION" class="work-cat-box">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="新築・注文住宅">
+                <div class="cat-overlay"></div>
+                <div class="cat-text">NEW HOUSE</div>
             </a>
-            <a href="service.html" class="work-item-link">
-                <img class="work-img" src="https://placehold.co/400x400/eee/999?text=Interior" alt="">
+            <a href="service.html#REFORM" class="work-cat-box">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="リフォーム・リノベーション">
+                <div class="cat-overlay"></div>
+                <div class="cat-text">RENOVATION</div>
             </a>
-            <a href="service.html" class="work-item-link">
-                <img class="work-img" src="https://placehold.co/400x400/eee/999?text=Signage" alt="">
+            <a href="service.html#SHOP" class="work-cat-box">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="店舗内装・デザイン">
+                <div class="cat-overlay"></div>
+                <div class="cat-text">SHOP DESIGN</div>
             </a>
-            <a href="service.html" class="work-item-link">
-                <img class="work-img" src="https://placehold.co/400x400/eee/999?text=Solar" alt="">
+            <a href="service.html#HOME_BAR" class="work-cat-box">
+                <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="ホームバー・趣味部屋">
+                <div class="cat-overlay"></div>
+                <div class="cat-text">HOME BAR</div>
+            </a>
+            <a href="service.html#DESIGN" class="work-cat-box">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="デザイン・設計">
+                <div class="cat-overlay"></div>
+                <div class="cat-text">DESIGN</div>
             </a>
         </div>
 
-        <div style="text-align:center; margin-top:60px;">
-            <a href="contact.html" class="btn-submit"
-                style="display:inline-block; width:auto; padding:15px 50px; margin:0 10px;">お問い合わせ</a>
+        <div style="text-align: center; margin-top: 40px;">
             <a href="service.html" class="btn-submit"
-                style="display:inline-block; width:auto; padding:15px 50px; margin:0 10px;">実績一覧を見る</a>
+                style="width: 250px; text-align:center; display:inline-block; text-decoration:none;">VIEW MORE</a>
+        </div>
+    </div>
+
+    <div class="section-content" style="background-color: #f9f9f9;">
+        <div class="div-block-5">
+            <h2 class="heading-4">ACCESS</h2>
+            <p class="paragraph-5">Location</p>
+        </div>
+
+        <div class="w-container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p style="font-size: 1.2rem; font-weight: bold;">株式会社テンポ社</p>
+                <p>〒028-0481 岩手県遠野市小友町34-65-1</p>
+                <p>TEL: 0198-68-2131 / FAX: 0198-68-2109</p>
+            </div>
+
+            <div style="width: 100%; height: 450px; border: 1px solid #ddd;">
+                <iframe src="https://maps.google.com/maps?q=有限会社テンポ社&output=embed" width="100%" height="100%"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </div>
 
     <div id="footer" class="footer">
-        <div class="w-container">
-            <img src="logo.png" width="150" class="footer-logo">
-            <div class="footer-line"></div>
-            <p class="address">〒028-0481 岩手県遠野市小友町34-65-1<br>TEL.0198-68-2131（代）　FAX.0198-68-2109</p>
-
-            <div style="width:100%; height:400px; margin:40px 0; background:#eee;">
-                <iframe src="https://maps.google.com/maps?q=岩手県遠野市小友町34-65-1&output=embed" width="100%" height="100%"
-                    frameborder="0" style="border:0; filter:grayscale(100%);" allowfullscreen></iframe>
-            </div>
-
-            <p class="copyright"><strong>Copyright TEMPO-SHA Co.,ltd.| All Rights Reserved.</strong></p>
+        <div class="footer-logo">
+            <img src="logo.png" alt="株式会社テンポ社">
         </div>
+        <div class="footer-address">
+            〒028-0481 岩手県遠野市小友町34-65-1<br>
+            TEL.0198-68-2131（代）　FAX.0198-68-2109
+        </div>
+        <div class="copyright">Copyright TEMPO-SHA Co.,ltd.| All Rights Reserved.</div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
