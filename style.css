@@ -158,6 +158,23 @@ img {
     color: #333;
 }
 
+.page-title span {
+    display: inline-block;
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 0.45em;
+}
+
+/* WORKページ内のカテゴリ見出し（英語／日本語）の区切り線 */
+.category-title span {
+    display: inline-block;
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 0.6em;
+}
+
 /* --- 4. ページ内コンテンツ共通 --- */
 .section-content {
     background-color: transparent;
@@ -385,6 +402,14 @@ img {
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* カテゴリー英語名と日本語名の間に区切り線 */
+.work-cat-box .cat-text span {
+    display: inline-block;
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+}
+
 .work-cat-box:hover img {
     transform: scale(1.08);
     opacity: 0.6;
@@ -532,6 +557,13 @@ img {
     color: #444;
     background: #fff;
     letter-spacing: 0.05em;
+}
+
+.project-name span {
+    display: inline-block;
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 /* --- 9. ページ別: COMPANY / CONTACT 共通 --- */
