@@ -215,22 +215,22 @@ img {
 
 /* --- 5. フッター (footer) --- */
 .footer {
-    background-color: #1a1a1a;
+    background-color: #f0f0f0;
     padding: 100px 0;
-    color: #888;
+    color: #555;
     text-align: center;
 }
 
 .footer-logo img,
 .footer-logo {
     width: 150px;
-    opacity: 0.9;
+    opacity: 1;
     margin: 0 auto 20px;
     display: block;
 }
 
 .footer-line {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #ddd;
     width: 100%;
     margin: 20px 0;
 }
@@ -252,7 +252,7 @@ img {
 
 /* --- 6. ページ別: INDEX (トップ) --- */
 .top_slide.new {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -697,7 +697,7 @@ img {
 
     .top_photo_common,
     .top_slide.new {
-        height: 300px;
+        height: 240px;
     }
 
     /* スライドショーのスマホ表示 */
