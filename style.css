@@ -230,6 +230,44 @@ img {
     margin-top: 30px;
 }
 
+/* 英語見出しの下に表示する日本語補助テキスト */
+.ja-sub {
+    display: block;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.5em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+.section-sub {
+    font-size: 22px;
+    margin-top: 10px;
+    color: #444;
+}
+
+.script-sub {
+    font-size: 18px;
+    margin-top: -10px;
+    color: var(--sky-blue);
+}
+
+.page-title-sub {
+    font-size: 0.35em;
+    margin-top: 8px;
+}
+
+.hero-sub {
+    font-size: 0.45em;
+    color: #fff;
+}
+
+.scroll-sub {
+    font-size: 0.8em;
+    color: #fff;
+}
+
 /* --- 5. フッター (footer) --- */
 .footer {
     background-color: #f0f0f0;
@@ -650,6 +688,37 @@ img {
     box-shadow: 0 5px 15px rgba(122, 173, 195, 0.4);
 }
 
+.phone-contact-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.phone-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.phone-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    letter-spacing: 0.05em;
+    color: #333;
+    border-bottom: 2px solid var(--sky-blue);
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.phone-hours {
+    margin-top: 20px;
+    color: #666;
+}
+
 /* --- 10. レスポンシブ --- */
 @media (max-width: 991px) {
 
@@ -712,6 +781,18 @@ img {
     .paragraph-14 {
         font-size: 30px;
         margin-top: -20px;
+    }
+
+    .section-sub {
+        font-size: 18px;
+    }
+
+    .script-sub {
+        font-size: 15px;
+    }
+
+    .phone-link {
+        font-size: 34px;
     }
 
     .div-block-2 {
