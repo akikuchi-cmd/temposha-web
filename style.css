@@ -518,6 +518,13 @@ img {
 
 .work-content {
     padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-color);
+    position: relative;
+    z-index: 2;
 }
 
 .heading-3 {
