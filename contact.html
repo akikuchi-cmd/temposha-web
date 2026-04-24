@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <title>Contact | 株式会社テンポ社</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description" content="株式会社テンポ社へのお問い合わせページです。店舗施工・住宅建築・リフォーム・看板制作のご相談やお見積もり依頼を受け付けています。">
+    <meta property="og:title" content="Contact | 株式会社テンポ社">
+    <meta property="og:description" content="株式会社テンポ社へのお問い合わせページです。ご相談・お見積もり依頼はこちらから。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://temposha-web.vercel.app/contact.html">
+    <link rel="canonical" href="https://temposha-web.vercel.app/contact.html">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -13,18 +19,10 @@
     <div class="top_menu001">
         <a href="index.html" class="brand-2"><img src="logo.png" alt="株式会社テンポ社"></a>
         <nav class="nav-menu-3">
-            <a href="index.html" class="nav-link-5">
-                HOME<br><span style="font-size: 11px;">ホーム</span>
-            </a>
-            <a href="company.html" class="nav-link-6">
-                COMPANY<br><span style="font-size: 11px;">会社情報</span>
-            </a>
-            <a href="contact.html" class="nav-link-7 w--current">
-                CONTACT<br><span style="font-size: 11px;">お問い合わせ</span>
-            </a>
-            <a href="service.html" class="nav-link-7">
-                WORK<br><span style="font-size: 11px;">施工事例</span>
-            </a>
+            <a href="index.html" class="nav-link-5">HOME</a>
+            <a href="company.html" class="nav-link-6">COMPANY</a>
+            <a href="contact.html" class="nav-link-7 w--current">CONTACT</a>
+            <a href="service.html" class="nav-link-7">WORK</a>
         </nav>
         <div class="menu-button-2">≡</div>
     </div>
@@ -34,27 +32,34 @@
     </div>
 
     <div class="div-block-11">
-        <h1 class="work_title">
-            CONTACT<br><span style="font-size: 0.45em;">お問い合わせ</span>
-        </h1>
+        <h1 class="work_title">CONTACT</h1>
     </div>
-    <p class="paragraph-14">contact</p>
+    <p class="paragraph-14">mail form</p>
 
     <div class="section-content">
         <div class="w-container">
-            <p class="paragraph-4" style="text-align: center; margin-bottom: 40px;">
+            <p class="paragraph-4" style="text-align: center; margin-bottom: 50px;">
                 お見積もりや工事のご相談は、<br>
-                お電話にてお気軽にお問い合わせください。
+                下記フォームよりお気軽にお問い合わせください。
             </p>
 
-            <div class="form-wrapper" style="text-align: center;">
-                <p style="font-size: 1.2rem; margin-bottom: 10px;">お電話でのお問い合わせ</p>
-                <p style="font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
-                    TEL.0198-68-2131
-                </p>
-                <p style="color: #666; margin-bottom: 0;">
-                    受付時間や定休日については事前にご確認ください。
-                </p>
+            <div class="form-wrapper">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>お名前</label>
+                        <input type="text" name="name" class="form-control" required placeholder="例：山田 太郎">
+                    </div>
+                    <div class="form-group">
+                        <label>メールアドレス</label>
+                        <input type="email" name="email" class="form-control" required placeholder="例：info@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>お問い合わせ内容</label>
+                        <textarea name="message" rows="6" class="form-control" required
+                            placeholder="ご相談内容をご記入ください"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">送信する</button>
+                </form>
             </div>
         </div>
     </div>
