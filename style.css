@@ -111,8 +111,40 @@ img {
     background: rgba(0, 0, 0, 0.3);
 }
 
+/* CONTACTなどサブページのヒーロー見出し */
+.page-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 380px;
+}
+
+.page-hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 24px;
+    padding: 0 20px;
+}
+
+.page-hero .work_title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.page-hero .page-title-sub {
+    color: #fff;
+    opacity: 0.95;
+}
+
+.page-hero-sub {
+    margin-top: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+}
+
 .div-block-11 {
-    margin-top: -150px;
+    margin-top: -40px;
     position: relative;
     z-index: 2;
     text-align: center;
@@ -131,11 +163,11 @@ img {
 .paragraph-14 {
     color: var(--sky-blue);
     text-align: center;
-    margin-top: -30px;
-    margin-left: 200px;
+    margin: 12px auto 0;
     font-family: 'Great Vibes', cursive;
     font-size: 44px;
-    transform: rotate(-20deg);
+    line-height: 1.15;
+    transform: none;
     position: relative;
     z-index: 3;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -212,16 +244,23 @@ img {
 
 .div-block-5 {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+}
+
+.div-block-5 > p {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .paragraph-5 {
     font-family: 'Great Vibes', cursive;
     font-size: 40px;
     color: var(--sky-blue);
-    margin-top: -25px;
-    transform: rotate(-10deg) translateX(80px);
-    opacity: 0.8;
+    margin-top: 12px;
+    margin-bottom: 0;
+    transform: none;
+    opacity: 0.9;
+    line-height: 1.2;
 }
 
 .paragraph-6 {
@@ -243,13 +282,15 @@ img {
 
 .section-sub {
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 6px;
+    margin-bottom: 0;
     color: #444;
 }
 
 .script-sub {
     font-size: 18px;
-    margin-top: -10px;
+    margin-top: 6px;
+    margin-bottom: 0;
     color: var(--sky-blue);
 }
 
@@ -259,13 +300,22 @@ img {
 }
 
 .hero-sub {
-    font-size: 0.45em;
+    display: block;
+    margin-top: 6px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .scroll-sub {
     font-size: 0.8em;
     color: #fff;
+    margin-top: 0;
+    margin-left: 0.4em;
+    letter-spacing: 0.18em;
 }
 
 /* --- 5. フッター (footer) --- */
@@ -320,35 +370,55 @@ img {
     background-position: center;
 }
 
-/* スクロールダウン矢印 */
+/* スクロールダウン矢印（画面右端・縦表示） */
 .div-block-2 {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    top: 50%;
+    right: 18px;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 14px;
     z-index: 10;
     cursor: pointer;
-    border-radius: 10px 10px 0 0;
+    border-radius: 0;
 }
 
 .arrow-icon {
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 0;
+    font-size: 12px;
     color: #fff;
+    animation: scroll-bounce 1.6s ease-in-out infinite;
 }
 
 .text-block-3 {
     color: #fff;
     font-family: 'Oswald', sans-serif;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.28em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+@keyframes scroll-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
 }
 
 /* 理念セクション */
@@ -457,7 +527,7 @@ img {
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* --- 7. WORKページ用: Top Slider --- */
+/* --- 7. WORKページ用: Top Slider（右→左 流れるマーキー） --- */
 #top-slider-container {
     width: 100%;
     background-color: var(--bg-color);
@@ -465,29 +535,50 @@ img {
     overflow: hidden;
 }
 
-#top-slider {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    height: 500px;
-}
-
-/* 各スライドの共通設定 */
-.slide-item {
-    position: absolute;
-    top: 0;
-    left: 0;
+.work-marquee {
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    z-index: 0;
-    background: var(--bg-color);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
-.slide-item.active {
-    opacity: 1;
-    z-index: 1;
+.work-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 24px;
+    animation: work-marquee-scroll 45s linear infinite;
+}
+
+.work-marquee:hover .work-marquee-track {
+    animation-play-state: paused;
+}
+
+.work-marquee-item {
+    flex: 0 0 auto;
+    width: 340px;
+    text-align: center;
+}
+
+.work-marquee-item img {
+    width: 340px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.work-marquee-cap {
+    display: block;
+    margin-top: 14px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+}
+
+@keyframes work-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 12px)); }
 }
 
 /* ワーク詳細のグリッドレイアウト */
@@ -741,8 +832,12 @@ img {
     }
 
     .paragraph-14 {
-        margin-left: 0;
-        margin-top: -110px;
+        margin: 10px auto 0;
+        font-size: 36px;
+    }
+
+    .hero-sub {
+        font-size: 14px;
     }
 
     .work-grid {
@@ -782,12 +877,18 @@ img {
 
     .paragraph-5 {
         font-size: 30px;
-        transform: rotate(-10deg) translateX(40px);
+        transform: none;
+        margin-top: 10px;
     }
 
     .paragraph-14 {
-        font-size: 30px;
-        margin-top: -20px;
+        font-size: 28px;
+        margin: 8px auto 0;
+    }
+
+    .hero-sub {
+        font-size: 12px;
+        letter-spacing: 0.08em;
     }
 
     .section-sub {
@@ -803,35 +904,38 @@ img {
     }
 
     .div-block-2 {
-        width: 100%;
+        top: auto;
+        bottom: 16px;
+        right: 12px;
+        transform: none;
+        width: auto;
         height: auto;
-        padding: 15px;
-        background: rgba(0, 0, 0, 0.3);
+        padding: 0;
+        background: transparent;
         border-radius: 0;
-        bottom: 0;
     }
 
     .text-block-3 {
-        font-size: 12px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
     }
 
     .top_photo_common,
     .top_slide.new {
         height: 240px;
     }
-
-    /* スライドショーのスマホ表示 */
-    #top-slider {
-        height: auto;
+    /* スライドショーのスマホ表示（マーキー） */
+    .work-marquee-item {
+        width: 240px;
     }
 
-    .slide-item {
-        position: relative;
-        opacity: 1;
-        height: auto;
-        margin-bottom: 60px;
-        z-index: 1;
-        background: transparent;
+    .work-marquee-item img {
+        width: 240px;
+        height: 170px;
+    }
+
+    .work-marquee-cap {
+        font-size: 13px;
     }
 
     .work-grid {
