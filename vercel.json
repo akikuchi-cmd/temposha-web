@@ -1,5 +1,0 @@
-{
-  "redirects": [
-    { "source": "/(.*)", "destination": "https://temposha.sys-app.jp/$1", "permanent": true }
-  ]
-}
