@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next"
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://temposha-web.vercel.app/",
+      url: "https://temposha.sys-app.jp/",
     },
   ]
 }
