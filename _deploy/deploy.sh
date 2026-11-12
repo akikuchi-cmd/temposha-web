@@ -19,6 +19,8 @@ rsync -az --delete --delete-excluded \
   --include='/contact.html' --include='/gallery-content.html' \
   --include='/googleb674da6246a62dce.html' --include='/robots.txt' --include='/sitemap.xml' \
   --include='/style.css' --include='/script.js' --include='/logo.png' \
+  --include='/favicon.ico' --include='/icon-192.png' --include='/icon-512.png' \
+  --include='/apple-touch-icon.png' --include='/og-image.png' \
   --exclude='.DS_Store' --include='/images/***' \
   --exclude='*' \
   ./ $HOST:$DIR/site/
