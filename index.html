@@ -9,11 +9,11 @@
     <meta property="og:title" content="株式会社テンポ社 | 岩手県遠野市の店舗施工・住宅建築">
     <meta property="og:description" content="岩手県遠野市の株式会社テンポ社。店舗施工、住宅建築、リフォーム、看板制作を一貫して対応します。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://temposha-web.vercel.app/">
+    <meta property="og:url" content="https://temposha.sys-app.jp/">
     <meta property="og:site_name" content="株式会社テンポ社">
     <meta property="og:locale" content="ja_JP">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://temposha-web.vercel.app/">
+    <link rel="canonical" href="https://temposha.sys-app.jp/">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
         {
@@ -21,8 +21,9 @@
             "@type": "LocalBusiness",
             "name": "株式会社テンポ社",
             "alternateName": "テンポ社",
-            "url": "https://temposha-web.vercel.app/",
+            "url": "https://temposha.sys-app.jp/",
             "telephone": "+81-198-68-2131",
+            "email": "temposha@tonotv.com",
             "address": {
                 "@type": "PostalAddress",
                 "postalCode": "028-0481",
@@ -90,6 +91,32 @@
             z-index: 0;
             transform: none;
         }
+
+        /* 動画の下地（読み込み中も紺の紙の色にしておく） */
+        .top_slide.new {
+            background: #1f2f45;
+        }
+
+        /* 動画の最後にロゴが出ている間は、暗い膜と「TEMPO-SHA」の文字を消す */
+        .hero-fade {
+            transition: opacity 0.7s ease;
+        }
+
+        .top_slide.new.is-logo .hero-fade {
+            opacity: 0;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 
@@ -111,21 +138,14 @@
     <div class="top_slide new"
         style="width: 96%; margin: 0 auto; border-radius: 0 0 20px 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
 
-        <video src="images/top_movie_new.mp4" autoplay loop muted playsinline
-            class="top-hero-video">
+        <video src="images/top_movie_concept.mp4" poster="images/top_movie_concept_poster.jpg"
+            autoplay loop muted playsinline preload="auto" class="top-hero-video" id="heroVideo">
         </video>
 
-        <div
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1;">
-        </div>
+        <!-- 画面には出さず、検索エンジンと読み上げ用にページの見出しだけ残す -->
+        <h1 class="visually-hidden">株式会社テンポ社｜岩手県遠野市の店舗施工・住宅建築</h1>
 
-        <div class="div-block-11"
-            style="position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 10;">
-            <h1 class="work_title">TEMPO-SHA</h1>
-            <p class="paragraph-14">Total Produce<br><span class="ja-sub hero-sub">トータルプロデュース</span></p>
-        </div>
-
-        <div class="div-block-2" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">
+        <div class="div-block-2 hero-fade" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">
             <div class="text-block-3">SCROLL<span class="ja-sub scroll-sub">スクロール</span></div>
             <div class="arrow-icon">▼</div>
         </div>
@@ -218,10 +238,10 @@
             <div style="text-align: center; margin-bottom: 40px;">
                 <p style="font-size: 1.2rem; font-weight: bold;">株式会社テンポ社</p>
                 <p>〒028-0481 岩手県遠野市小友町34-65-1</p>
-                <p>TEL: 0198-68-2131 / FAX: 0198-68-2109</p>
+                <p>TEL: 0198-68-2131 / FAX: 0198-68-2109<br>MAIL: <a href="mailto:temposha@tonotv.com">temposha@tonotv.com</a></p>
             </div>
 
-            <p style="text-align:center; color:#666;">地図の掲載は行っておりません。お電話にてお気軽にお問い合わせください。</p>
+            <p style="text-align:center; color:#666;">地図の掲載は行っておりません。お電話・メールにてお気軽にお問い合わせください。</p>
         </div>
     </div>
 
@@ -231,13 +251,31 @@
         </div>
         <div class="footer-address">
             〒028-0481 岩手県遠野市小友町34-65-1<br>
-            TEL.0198-68-2131（代）　FAX.0198-68-2109
+            TEL.0198-68-2131（代）　FAX.0198-68-2109<br>MAIL.<a href="mailto:temposha@tonotv.com">temposha@tonotv.com</a>
         </div>
         <div class="copyright">Copyright TEMPO-SHA Co.,ltd.| All Rights Reserved.</div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // ヒーロー動画のロゴ場面（17.7秒〜23.4秒のうち、白い紙が出ている間）は文字を消す
+        // 動画を作り直して長さが変わったら、_video/make_hero.py の時間割に合わせてこの2つの数字を直す
+        (function () {
+            var LOGO_FROM = 17.8, LOGO_TO = 22.6;
+            var v = document.getElementById('heroVideo');
+            if (!v) return;
+            var box = v.parentNode;
+            function check() {
+                var t = v.currentTime;
+                box.classList.toggle('is-logo', t >= LOGO_FROM && t < LOGO_TO);
+            }
+            function tick() { check(); requestAnimationFrame(tick); }
+            v.addEventListener('timeupdate', check);
+            v.addEventListener('seeked', check);
+            requestAnimationFrame(tick);
+        })();
+    </script>
 
 </body>
 

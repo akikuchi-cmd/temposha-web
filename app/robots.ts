@@ -17,6 +17,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://temposha-web.vercel.app/sitemap.xml",
+    sitemap: "https://temposha.sys-app.jp/sitemap.xml",
   }
 }

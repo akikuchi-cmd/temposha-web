@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://temposha-web.vercel.app/</loc>
+    <loc>https://temposha.sys-app.jp/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://temposha-web.vercel.app/company.html</loc>
+    <loc>https://temposha.sys-app.jp/company.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://temposha-web.vercel.app/service.html</loc>
+    <loc>https://temposha.sys-app.jp/service.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://temposha-web.vercel.app/contact.html</loc>
+    <loc>https://temposha.sys-app.jp/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

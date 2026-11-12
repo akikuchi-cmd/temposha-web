@@ -1,0 +1,34 @@
+# 株式会社テンポ社サイト — Xサーバー VPS 用（/opt/temposha/docker-compose.yml）
+# 既存サイト（tono-rinri / kickers など）と同じ構成：nginx:alpine ＋ Coolify の Traefik で振り分け・https自動化
+#
+# 本番：https://temposha.sys-app.jp/（*.sys-app.jp はワイルドカードで 162.43.18.175 を向いているのでDNS設定は不要）
+services:
+  temposha:
+    image: nginx:alpine
+    container_name: temposha
+    restart: unless-stopped
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - coolify
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: coolify
+      # http はすべて https へ転送する
+      traefik.http.middlewares.temposha-https.redirectregex.regex: "^http://[^/]+/(.*)"
+      traefik.http.middlewares.temposha-https.redirectregex.replacement: "https://temposha.sys-app.jp/$${1}"
+      traefik.http.middlewares.temposha-https.redirectregex.permanent: "true"
+      traefik.http.routers.temposha-http.entrypoints: http
+      traefik.http.routers.temposha-http.middlewares: temposha-https
+      traefik.http.routers.temposha-http.rule: Host(`temposha.sys-app.jp`)
+      traefik.http.routers.temposha-https.entrypoints: https
+      traefik.http.routers.temposha-https.rule: Host(`temposha.sys-app.jp`)
+      traefik.http.routers.temposha-https.tls: "true"
+      traefik.http.routers.temposha-https.tls.certresolver: letsencrypt
+      traefik.http.routers.temposha-https.service: temposha
+      traefik.http.services.temposha.loadbalancer.server.port: "80"
+
+networks:
+  coolify:
+    external: true
